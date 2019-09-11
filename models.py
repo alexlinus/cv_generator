@@ -22,7 +22,7 @@ class CV(db.Model):
     position = db.Column(db.String(100), nullable=True)
     #https://sqlalchemy-utils.readthedocs.io/en/latest/data_types.html#module-sqlalchemy_utils.types.choice, но нужно переопредялять db на sqlaclhemy_utils вместо SQLACLCHEMY в app.py
     work_schedule = db.Column(db.String(100), default='Полный рабочий день')
-    education = db.relationship('Education', secondary=cv_education, backref=db.backref('cv', cascade="all, delete-orphan", lazy='dynamic'))
+    education = db.relationship('Education', secondary=cv_education, backref=db.backref('cv', lazy='dynamic'), cascade="all, delete-orphan", single_parent=True)
 
 class Education(db.Model):
     id = db.Column(db.Integer, primary_key=True)
