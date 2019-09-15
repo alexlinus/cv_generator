@@ -28,5 +28,5 @@ class Education(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     study_place = db.Column(db.String(200), nullable=False)
     specialty_faculty = db.Column(db.String(200), nullable=True)
-    start_study = db.Column(db.Date(), nullable=True)
-    end_study = db.Column(db.Date(), nullable=True)
+    start_study = db.Column(db.Date, nullable=True)
+    end_study = db.Column(db.Date, nullable=True)
